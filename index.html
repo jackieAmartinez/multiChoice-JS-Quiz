@@ -11,33 +11,52 @@
 
 <body>
     <!-- Jumbotron component, Opening page -->
-
+    <main id="">
         <!-- Header, "This is a quiz." -->
-        <!-- Button, "Click me to START" -->
-        <!-- Button, "Click me to see HIGH SCORES" -->
+        <h1>header</h1>
 
-            <!-- Modal component, High Score Modal (HSM) -->
-            <!-- Header, "High Scores" -->
-                <!-- Text Input, enter initials -->
-                <!-- Button, "Submit" -->
-                <!-- Unordered list, 3 items  -->
-                <!-- Button, "Close", return to Opening Page -->
+
+        <!-- Button, "Click me to START" -->
+        <button type="button" class="btn btn-primary btn-sm">Small button</button>
+        <!-- Button, "Click me to see HIGH SCORES" -->
+        <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+
+        <!-- Modal component, High Score Modal (HSM) -->
+        <!-- Header, "High Scores" -->
+        <!-- Text Input, enter initials -->
+        <div class="input-group">
+            <span class="input-group-text">With textarea</span>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+        </div>
+        <!-- Button, "Submit" -->
+        <button type="button" class="btn btn-primary"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+            Custom button
+        </button>
+        <!-- Unordered list, 3 items  -->
+        <!-- Button, "Close", return to Opening Page -->
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button">Button</button>
+        </div>
+
 
         <!-- Header, "This is a question" -->
-        <!-- Button, "Right Answer" -->  
+        <!-- Button, "Right Answer" -->
+        <button type="button" class="btn btn-primary btn-sm">Small button</button>
         <!-- Button, "Wrong Answer" -->
+        <button type="button" class="btn btn-primary btn-sm">Small button</button>
         <!-- Button, "Wrong Answer" -->
+        <button type="button" class="btn btn-primary btn-sm">Small button</button>
         <!-- Button, "Wrong Answer" -->
+        <button type="button" class="btn btn-primary btn-sm">Small button</button>
 
         <!-- IF THEN loop - cycle through four questions, THEN Score Modal -->
         <!-- Text - "here is your score!", "00", "Congratulations, I'm so proud of you" -->
 
 
-    <main id="">
-        <h1>header</h1>
-        <h3>subtitle</h3>
-    <script src="./assets/script.js">
-    </script>
+
+        <script src="./assets/script.js">
+        </script>
 </body>
 
 </html>

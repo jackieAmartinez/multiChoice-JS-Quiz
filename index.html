@@ -11,107 +11,119 @@
 
 <body>
     <!-- Jumbotron component, Opening page -->
-    <!-- <div class="container-fluid"></div> -->
-
-
-    <main id="">
+    <main id="startScreen" class="container-fluid" position-absolute="top-50 start-50 translate-middle">
         <!-- Header, "This is a quiz." -->
         <h1>This is a quiz.</h1>
-        <3>It is about JavaScript.</3>
+        <h3>It is about JavaScript.</h3>
 
 
         <!-- Rules Button -->
-        <button type="button" class="btn btn-secondary btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-title="Rules Popover" data-bs-content="HERE ARE THE RULES OF THE GAME - ABIDE BY THEM">Rules</button>
-        
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-container="body" data-bs-toggle="popover"
+            data-bs-placement="top" data-bs-title="Rules Popover"
+            data-bs-content="HERE ARE THE RULES OF THE GAME - ABIDE BY THEM">Rules</button>
+
         <!-- Start Button -->
         <button type="button" class="btn btn-primary btn-sm">Start</button>
-        
+
         <!-- High Scores Button -->
         <div class="modal-dialog modal-dialog-centered">
-        <!-- Modal component, High Score Modal (HSM) -->
-        <!-- Header, "High Scores" -->
-        <!-- Text Input, enter initials -->
-        <div class="input-group">
-            <span class="input-group-text">With textarea</span>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-        </div>
-        <!-- Button, "Submit" -->
-        <button type="button" class="btn btn-primary"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-            Custom button
-        </button>
-        <!-- Unordered list, 3 items  -->
-        <p id="" class="">
-        <ol>
-            <li>AAA</li>
-            <li>BBB</li>
-            <li>LOL</li>
-        </ol>
-        </p>
-        <!-- Button, "Close", return to Opening Page -->
-        <div class="d-grid">
-            <button class="btn btn-primary" type="button">Button</button>
-        </div>
-
-
-        <!-- AFTER CLICKING START QUIZ -->
-        <!-- Header, "This is a question" -->
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  Show a second modal and hide this one with the button below.
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
-                </div>
-              </div>
+            <!-- Modal component, High Score Modal (HSM) -->
+            <!-- Header, "High Scores" -->
+            <div class="hstack gap-3">
+                <input class="form-control me-auto" type="text" placeholder="Add your item here..."
+                    aria-label="Add your item here...">
+                <button type="button" class="btn btn-secondary">Submit</button>
+                <div class="vr"></div>
+                <button type="button" class="btn btn-outline-danger">Reset</button>
             </div>
-          </div>
-          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  Hide this modal and show the first with the button below.
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-                </div>
-              </div>
+
+            
+            <!-- Text Input, enter initials -->
+            <!-- <div class="input-group">
+                <span class="input-group-text">Enter your initials</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
             </div>
-          </div>
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button>
-        
-        <!-- Button, "Right Answer" -->
-        <button type="button" class="btn btn-primary btn-sm">Small button</button>
-        <!-- Button, "Wrong Answer" -->
-        <button type="button" class="btn btn-primary btn-sm">Small button</button>
-        <!-- Button, "Wrong Answer" -->
-        <button type="button" class="btn btn-primary btn-sm">Small button</button>
-        <!-- Button, "Wrong Answer" -->
-        <button type="button" class="btn btn-primary btn-sm">Small button</button>
-
-        <!-- IF THEN loop - cycle through four questions, THEN Score Modal -->
-        <!-- Text - "here is your score!", "00", "Congratulations, I'm so proud of you" -->
-        <p id="" class="">
-        <ul id="">
-            <li class="endText-sm">Here is your score!</li>
-            <li class="endText-bld">"100"</li>
-            <li class="endText-sm">Congratulations, I'm so proud of you.</li>
-        </ul>
-        </p>
+            <!-- Button, "Submit" -->
+            <!-- <button type="button" class="btn btn-primary"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Submit</button> -->
 
 
+            <!-- Unordered list, 3 items  -->
+            <p id="highScores" class="">
+            <ol>
+                <li>AAA</li>
+                <li>BBB</li>
+                <li>LOL</li>
+            </ol>
+            </p>
+            <!-- Button, "Close", return to Opening Page -->
+            <div class="d-grid">
+                <button class="btn btn-primary" type="button" data-bs-target="#startScreen">Close</button>
+            </div>
 
-        <script src="./assets/script.js"></script>
+
+            <!-- AFTER CLICKING START QUIZ -->
+            <!-- Header, "This is a question" -->
+            <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Question 1</h1>
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                        </div>
+                        <div class="modal-body">This is where we ask Question 1</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                                data-bs-toggle="modal">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Hide this modal and show the first with the button below.
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle"
+                                data-bs-toggle="modal">Back to first</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first
+                modal</button>
+
+            <!-- Button, "Right Answer" -->
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+            <!-- Button, "Wrong Answer" -->
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+            <!-- Button, "Wrong Answer" -->
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+            <!-- Button, "Wrong Answer" -->
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+
+            <!-- IF THEN loop - cycle through four questions, THEN Score Modal -->
+            <!-- Text - "here is your score!", "00", "Congratulations, I'm so proud of you" -->
+            <p id="" class="">
+            <ul id="">
+                <li class="endText-sm">Here is your score!</li>
+                <li class="endText-bld">"100"</li>
+                <li class="endText-sm">Congratulations, I'm so proud of you.</li>
+            </ul>
+            </p>
+
+
+
+            <script src="./assets/script.js"></script>
+    </main>
 </body>
 
 </html>

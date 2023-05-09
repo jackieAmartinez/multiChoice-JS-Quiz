@@ -63,25 +63,25 @@ var Q3A4 = document.querySelector("#Q3A4");
 
 // Danny's variables
 
-var qArea = document.getElementById("Q-area");
-var aArea = document.getElementById("A-area");
-var secondsLeft = 90;
+// var qArea = document.getElementById("Q-area");
+// var aArea = document.getElementById("A-area");
+// var secondsLeft = 90;
 
-var a1Btn = document.getElementById("a1");
-var a2Btn = document.getElementById("a2");
-var a3Btn = document.getElementById("a3");
-var a4Btn = document.getElementById("a4");
-var form = document.getElementById("form");
-var aBtn = document.querySelectorAll(".A-btn");
-var feedback = document.getElementById("feedback");
-var feedbackExpiration;
-var message = document.getElementById("message");
-var initials = document.getElementById("initials");
-var inputField = document.getElementById("input");
-var submitBtn = document.getElementById("submit");
-var scoresArea = document.getElementById("scores-area");
-var scoreList = document.getElementById("scorelist");
-var reloadBtn = document.getElementById("reload");
+// var a1Btn = document.getElementById("a1");
+// var a2Btn = document.getElementById("a2");
+// var a3Btn = document.getElementById("a3");
+// var a4Btn = document.getElementById("a4");
+// var form = document.getElementById("form");
+// var aBtn = document.querySelectorAll(".A-btn");
+// var feedback = document.getElementById("feedback");
+// var feedbackExpiration;
+// var message = document.getElementById("message");
+// var initials = document.getElementById("initials");
+// var inputField = document.getElementById("input");
+// var submitBtn = document.getElementById("submit");
+// var scoresArea = document.getElementById("scores-area");
+// var scoreList = document.getElementById("scorelist");
+// var reloadBtn = document.getElementById("reload");
 
 
 // object full of objects for Qs and corresponding A arrays

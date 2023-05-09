@@ -7,211 +7,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css" />
     <title>JavaScript Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 
 <body>
     <!-- Jumbotron component, Opening page -->
-    <main id="startScreen" class="container-fluid" position-absolute="top-50 start-50 translate-middle">
-        <!-- Header, "This is a quiz." -->
-        <h1>This is a quiz.</h1>
-        <h3>It is about JavaScript.</h3>
+    <div class="jumbotron">
+        <main id="startScreen" class="container-fluid" position-absolute="top-50 start-50 translate-middle">
+            <!-- Header, "This is a quiz." -->
+            <h1>This is a quiz.</h1>
+            <h3>It is about JavaScript.</h3>
 
 
-        <!-- Rules Button -->
-        <button type="button" class="btn btn-secondary btn-sm" data-bs-container="body" data-bs-toggle="popover"
-            data-bs-placement="top" data-bs-title="Rules Popover"
-            data-bs-content="HERE ARE THE RULES OF THE GAME - ABIDE BY THEM">Rules</button><br>
+            <!-- Rules Button -->
+            <button id="rulesButton" type="button" class="btn btn-secondary btn-sm" data-bs-container="body"
+                data-bs-toggle="popover" data-bs-placement="top" data-bs-title="Rules Popover"
+                data-bs-content="HERE ARE THE RULES OF THE GAME - ABIDE BY THEM">Rules <!-- 6:22 in youtube video -->
+            </button><br>
 
-        <!-- Start Button -->
-        <button type="button" class="btn btn-primary btn-sm">Start</button><br>
+            <!-- Start Button -->
+            <button id="startButton" type="button" class="btn btn-primary btn-sm">Start</button><br>
 
-        <!-- HighScores Button -->
-        <button type="button" class="btn btn-secondary" data-bs-toggle="button" aria-pressed="true">View High
-            Scores</button>
-        <div class="vr"></div>
-
-
-
-
+            <!-- HighScores Button -->
+            <button id="highScButton" type="button" class="btn btn-secondary btn-sm" data-bs-toggle="button"
+                aria-pressed="true">View High
+                Scores</button>
+            <!-- <div class="vr"></div> -->
 
 
 
 
-        <!-- High Scores Button -->
-        <div id="highScoreModal" class="modal-dialog modal-dialog-centered">
-            <!-- Modal component, High Score Modal (HSM) -->
-            <!-- Header, "High Scores" -->
-            <div class="hstack gap-3">
-                <input class="form-control me-auto" type="text" placeholder="Add your initials here..."
-                    aria-label="Add your item here...">
-                <button type="button" class="btn btn-secondary">Submit</button>
-                <div class="vr"></div>
-                <button type="button" class="btn btn-outline-danger">Reset</button>
-            </div>
 
 
-            <!-- Text Input, enter initials -->
-            <!-- <div class="input-group">
+
+
+            <!-- High Scores Button -->
+            <div id="highScoreModal" class="modal-dialog modal-dialog-centered">
+                <!-- Modal component, High Score Modal (HSM) -->
+                <!-- Header, "High Scores" -->
+                <div class="hstack gap-3">
+                    <input id="initialsInput" class="form-control me-auto" type="text"
+                        placeholder="Add your initials here..." aria-label="Add your item here...">
+                    <button id="inInSubmitBtn " type="button" class="btn btn-secondary">Submit</button>
+                </div>
+
+
+                <!-- Text Input, enter initials -->
+                <!-- <div class="input-group">
                 <span class="input-group-text">Enter your initials</span>
                 <textarea class="form-control" aria-label="With textarea"></textarea>
             </div>
             <!-- Button, "Submit" -->
-            <!-- <button type="button" class="btn btn-primary"
+                <!-- <button type="button" class="btn btn-primary"
                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Submit</button> -->
 
 
-            <!-- Unordered list, 3 items  -->
-            <p id="highScores" class="">
-            <ol>
-                <li>AAA</li>
-                <li>BBB</li>
-                <li>LOL</li>
-            </ol>
-            </p>
-            <!-- Button, "Close", return to Opening Page -->
-            <div class="d-grid">
-                <button class="btn btn-primary" type="button" data-bs-target="#startScreen">Close</button>
-            </div>
+                <!-- Unordered list, 3 items  -->
+                <p id="highScores" class="">
+                <ol>
+                    <li>AAA</li>
+                    <li>BBB</li>
+                    <li>LOL</li>
+                </ol>
+                </p>
+                <!-- Button, "Close", return to Opening Page -->
+                <div class="d-grid">
+                    <button id="closeButton" class="btn btn-primary" type="button"
+                        data-bs-target="#startScreen">Close</button>
+                </div>
 
 
-            <!-- AFTER CLICKING START QUIZ -->
+                <!-- AFTER CLICKING "START QUIZ" -->
 
-            <!-- QUESTION 1 -->
-            <!-- Question One (Q1) Attributes -->
-            <div class="modal fade" id="questionOneToggle" aria-hidden="true" aria-labelledby="questionOneToggleLabel"
-                tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
+                <!-- QUESTION 1 -->
+                <!-- Question One (Q1) Attributes -->
+                <div class="modal fade" id="Q1Toggle" aria-hidden="true"
+                    aria-labelledby="Q1ToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
 
-                        <!-- Question Body -->
-                        <div class="modal-body">This is a Question.</div>
+                            <!-- Question Body -->
+                            <div id="Q1ModalBody" class="modal-body">This is a Question.</div>
 
-                        <!-- Answer Options -->
-                        <section class="answerButtonsGroup">
-                            <!-- Ans1-Q1 -->
-                            <button type="button" class="btn btn-success btn-sm">Right Answer</button>
-                            <!-- Ans1-Q1 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button><br>
-                            <!-- Ans1-Q1 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button>
-                            <!-- Ans1-Q1 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button>
-                        </section>
-                        <!-- Submit -->
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-target="#questionTwoToggle"
-                                data-bs-toggle="modal">Submit</button>
+                            <!-- Answer Options -->
+                            <section class="answerButtonsGroup">
+                            <!-- <section id="Q1answerButtonsGroup"> -->
+                                <!-- Ans1-Q1 -->
+                                <button id="Q1A1" type="button" class="btn btn-primary btn-sm">Right Answer</button>
+                                <!-- Ans1-Q2 -->
+                                <button id="Q1A2" type="button" class="btn btn-primary btn-sm">Wrong Answer</button><br>
+                                <!-- Ans1-Q3 -->
+                                <button id="Q1A3" type="button" class="btn btn-primary btn-sm">Wrong Answer</button>
+                                <!-- Ans1-Q4 -->
+                                <button id="Q1A4" type="button" class="btn btn-primary btn-sm">Wrong Answer</button>
+                            </section>
+                            <!-- Submit -->
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-bs-target="#Q2Toggle"
+                                    data-bs-toggle="modal">Submit</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            <!-- QUESTION 2 -->
-            <!-- Question Two (Q2) Attributes -->
-            <div class="modal fade" id="questionTwoToggle" aria-hidden="true" aria-labelledby="questionTwoToggleLabel"
-                tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <!-- Question Body -->
-                        <div class="modal-body">This is a Question.</div>
+                <!-- QUESTION 2 -->
+                <!-- Question Two (Q2) Attributes -->
+                <div class="modal fade" id="Q2Toggle" aria-hidden="true"
+                    aria-labelledby="Q2ToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <!-- Question Body -->
+                            <div id="Q2ModalBody" class="modal-body">This is a Question.</div>
 
-                        <!-- Answer Options -->
-                        <section class="answerButtonsGroup">
-                            <!-- Ans1-Q2 -->
-                            <button type="button" class="btn btn-success btn-sm">Right Answer</button>
-                            <!-- Ans2-Q2 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button><br>
-                            <!-- Ans3-Q2 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button>
-                            <!-- Ans4-Q2  -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button>
-                        </section>
-                        <!-- Submit -->
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-target="#questionThreeToggle"
-                                data-bs-toggle="modal">Submit</button>
+                            <!-- Answer Options -->
+                            <section class="answerButtonsGroup">
+                                <!-- Ans1-Q2 -->
+                                <button id="Q2A1" type="button" class="btn btn-primary btn-sm">Right Answer</button>
+                                <!-- Ans2-Q2 -->
+                                <button id="Q2A2" type="button" class="btn btn-primary btn-sm">Wrong Answer</button><br>
+                                <!-- Ans3-Q2 -->
+                                <button id="Q2A3" type="button" class="btn btn-primary btn-sm">Wrong Answer</button>
+                                <!-- Ans4-Q2  -->
+                                <button id="Q2A4" type="button" class="btn btn-primary btn-sm">Wrong Answer</button>
+                            </section>
+                            <!-- Submit -->
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-bs-target="#Q3Toggle"
+                                    data-bs-toggle="modal">Submit</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            <!-- QUESTION 3 -->
-            <!-- Question Three (Q3) Attributes -->
-            <div class="modal fade" id="questionThreeToggle" aria-hidden="true"
-                aria-labelledby="questionThreeToggleLabel" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
+                <!-- QUESTION 3 -->
+                <!-- Question Three (Q3) Attributes -->
+                <div class="modal fade" id="Q3Toggle" aria-hidden="true"
+                    aria-labelledby="Q3ToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
 
-                        <!-- Question Body -->
-                        <div class="modal-body">This is a Question.</div>
+                            <!-- Question Body -->
+                            <div id="Q2ModalBody" class="modal-body">This is a Question.</div>
 
-                        <!-- Answer Options -->
-                        <section class="answerButtonsGroup">
-                            <!-- Ans1-Q3 -->
-                            <button type="button" class="btn btn-success btn-sm">Right Answer</button>
-                            <!-- Ans1-Q3 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button><br>
-                            <!-- Ans1-Q3 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button>
-                            <!-- Ans1-Q3 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button>
-                        </section>
-                        <!-- Submit -->
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-target="#questionFourToggle"
-                                data-bs-toggle="modal">Submit</button>
+                            <!-- Answer Options -->
+                            <section class="answerButtonsGroup">
+                                <!-- Ans1-Q3 -->
+                                <button id="Q3A1" type="button" class="btn btn-primary btn-sm">Right Answer</button>
+                                <!-- Ans1-Q3 -->
+                                <button id="Q3A2" type="button" class="btn btn-primary btn-sm">Wrong Answer</button><br>
+                                <!-- Ans1-Q3 -->
+                                <button id="Q3A3" type="button" class="btn btn-primary btn-sm">Wrong Answer</button>
+                                <!-- Ans1-Q3 -->
+                                <button id="Q3A4" type="button" class="btn btn-primary btn-sm">Wrong Answer</button>
+                            </section>
+                            <!-- Submit -->
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-bs-target="#Q4Toggle"
+                                    data-bs-toggle="modal">Submit</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            <!-- QUESTION 4 -->
-            <!-- Question Four (Q4) Attributes -->
-            <div class="modal fade" id="questionFourToggle" aria-hidden="true" aria-labelledby="questionFourToggleLabel"
-                tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
+                <!-- QUESTION 4 -->
+                <!-- Question Four (Q4) Attributes -->
+                <div class="modal fade" id="Q4Toggle" aria-hidden="true"
+                    aria-labelledby="Q4ToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
 
-                        <!-- Question Body -->
-                        <div class="modal-body">This is a Question.</div>
+                            <!-- Question Body -->
+                            <div id="Q4ModalBody" class="modal-body">This is a Question.</div>
 
-                        <!-- Answer Options -->
-                        <section class="answerButtonsGroup">
-                            <!-- Ans1-Q4 -->
-                            <button type="button" class="btn btn-success btn-sm">Right Answer</button>
-                            <!-- Ans1-Q4 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button><br>
-                            <!-- Ans1-Q4 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button>
-                            <!-- Ans1-Q4 -->
-                            <button type="button" class="btn btn-danger btn-sm">Wrong Answer</button>
-                        </section>
-                        <!-- Submit -->
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-target="#startScreen"
-                                data-bs-toggle="modal">Submit</button>
+                            <!-- Answer Options -->
+                            <section class="answerButtonsGroup">
+                                <!-- Ans1-Q4 -->
+                                <button id="Q4A1" type="button" class="btn btn-primary btn-sm">Right Answer</button>
+                                <!-- Ans1-Q4 -->
+                                <button id="Q4A2" type="button" class="btn btn-primary btn-sm">Wrong Answer</button><br>
+                                <!-- Ans1-Q4 -->
+                                <button id="Q4A3" type="button" class="btn btn-primary btn-sm">Wrong Answer</button>
+                                <!-- Ans1-Q4 -->
+                                <button id="Q4A4" type="button" class="btn btn-primary btn-sm">Wrong Answer</button>
+                            </section>
+                            <!-- Submit -->
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-bs-target="#startScreen"
+                                    data-bs-toggle="modal">Calculate Score</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- IF THEN loop - cycle through four questions, THEN Score Modal -->
-            <!-- Text - "here is your score!", "00", "Congratulations, I'm so proud of you" -->
-            <p id="" class="">
-            <ul id="">
-                <li class="endText-sm">Here is your score!</li>
-                <li class="endText-bld">"100"</li>
-                <li class="endText-sm">Congratulations, I'm so proud of you.</li>
-            </ul>
-            </p>
-
+                <!-- IF THEN loop - cycle through four questions, THEN Score Modal -->
+                <!-- Text - "here is your score!", "00", "Congratulations, I'm so proud of you" -->
+                <p id="" class="">
+                <ul id="">
+                    <li class="endText-sm">Here is your score!</li>
+                    <li class="endText-bld">"100"</li>
+                    <li class="endText-sm">Congratulations, I'm so proud of you.</li>
+                </ul>
+                </p>
 
 
-            <script src="./assets/script.js"></script>
-    </main>
+
+                <script src="./assets/script.js"></script>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
+
+    </div>
 </body>
 
 </html>

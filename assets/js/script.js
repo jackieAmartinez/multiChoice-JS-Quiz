@@ -3,11 +3,18 @@ const bootstrap = require('bootstrap');
 // Body-ody-ody-ody
 var bodyEl = document.getElementById("body");
 var exampleEl = document.getElementById('example')
+
+
 // var popover = new bootstrap.Popover(exampleEl, options)
 // var myPopoverTrigger = document.getElementById('myPopover')
 // myPopoverTrigger.addEventListener('show.bs.popover', function () {
-//   // do something...
-// })
+
+// });
+// var popoverTriggerList = [].slice.call( document.querySelectorAll( '[data-toggle="popover]' ) );  
+// var popoverList = popoverTriggerList.map( function( popoverTrigger )
+//     {
+//         return new bootstrap.Popover( popoverTrigger );
+//     } );
 
 
 // Start Screen
@@ -131,23 +138,23 @@ function showQ1ModalBody(event) {
     Q1Toggle.idList.toggle("hide");
 }
 
-var timerInterval;
+// var timerInterval;
 
-function setTime() {
-    timerInterval = setInterval(function () {
-        secondsLeft--;
-        timeEl.textContent = secondsLeft;
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            endQuiz();
-        }
+// function setTime() {
+//     timerInterval = setInterval(function () {
+//         secondsLeft--;
+//         timeEl.textContent = secondsLeft;
+//         if (secondsLeft === 0) {
+//             clearInterval(timerInterval);
+//             endQuiz();
+//         }
 
-    }, 1000);
-}
+//     }, 1000);
+// }
 
 
 startBtn.addEventListener("click", function () {
-    setTime();
+    showQ1ModalBody();
     showQuiz();
 });
 
@@ -175,15 +182,15 @@ function check(event) {
 
     if (event.target.textContent == right) {
         next();
-        feedback.innerHTML = "good doggy";
+        feedback.innerHTML = "Excellent!";
         feedbackExpiration = setTimeout(function () {
             feedback.innerHTML = "";
         }, 1000);
     }
     else {
-        punish(10);
+        wrongg(10);
         next();
-        feedback.innerHTML = "how dare you";
+        feedback.innerHTML = "No.";
         feedbackExpiration = setTimeout(function () {
             feedback.innerHTML = "";
         }, 1000);
@@ -199,7 +206,7 @@ function stopAtZero() {
     }
 }
 
-function punish(seconds) {
+function wrongg(seconds) {
     secondsLeft -= seconds;
 }
 

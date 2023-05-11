@@ -2,6 +2,12 @@
 const bootstrap = require('bootstrap');
 // Body-ody-ody-ody
 var bodyEl = document.getElementById("body");
+var exampleEl = document.getElementById('example')
+// var popover = new bootstrap.Popover(exampleEl, options)
+// var myPopoverTrigger = document.getElementById('myPopover')
+// myPopoverTrigger.addEventListener('show.bs.popover', function () {
+//   // do something...
+// })
 
 
 // Start Screen

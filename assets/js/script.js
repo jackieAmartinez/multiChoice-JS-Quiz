@@ -153,143 +153,143 @@ function showQ1ModalBody(event) {
 // }
 
 
-startBtn.addEventListener("click", function () {
-    showQ1ModalBody();
-    showQuiz();
-});
+// startBtn.addEventListener("click", function () {
+//     showQ1ModalBody();
+//     showQuiz();
+// });
 
 
-function showQuiz() {
-    timeEl.classList.toggle("hide");
-    timeEl.textContent = secondsLeft;
-    initEl.classList.toggle('hide');
-    qArea.classList.toggle('hide');
-    aArea.classList.toggle('hide');
-    qArea.innerHTML = Q;
-    a1Btn.innerHTML = A1;
-    a2Btn.innerHTML = A2;
-    a3Btn.innerHTML = A3;
-    a4Btn.innerHTML = A4;
-}
-
-
-
-aArea.addEventListener("click", check);
-
-
-function check(event) {
-    var right = quizChunks[current].correct;
-
-    if (event.target.textContent == right) {
-        next();
-        feedback.innerHTML = "Excellent!";
-        feedbackExpiration = setTimeout(function () {
-            feedback.innerHTML = "";
-        }, 1000);
-    }
-    else {
-        wrongg(10);
-        next();
-        feedback.innerHTML = "No.";
-        feedbackExpiration = setTimeout(function () {
-            feedback.innerHTML = "";
-        }, 1000);
-        stopAtZero();
-        timeEl.textContent = secondsLeft;
-    };
-}
-
-function stopAtZero() {
-    if (secondsLeft <= 0) {
-        secondsLeft = 0;
-        endQuiz();
-    }
-}
-
-function wrongg(seconds) {
-    secondsLeft -= seconds;
-}
-
-function hideFeedback() {
-    clearTimeout(feedbackExpiration);
-}
-
-
-function next() {
-    current++;
-    hideFeedback();
-
-    if (current < 5) {
-        var Q = quizChunks[current].question;
-        var A1 = quizChunks[current].ans1;
-        var A2 = quizChunks[current].ans2;
-        var A3 = quizChunks[current].ans3;
-        var A4 = quizChunks[current].ans4;
-
-        qArea.innerHTML = Q;
-        a1Btn.innerHTML = A1;
-        a2Btn.innerHTML = A2;
-        a3Btn.innerHTML = A3;
-        a4Btn.innerHTML = A4;
-    }
-
-    else {
-        endQuiz();
-    }
-}
-
-function endQuiz() {
-    clearInterval(timerInterval);
-    qArea.classList.toggle("hide");
-    aArea.classList.toggle("hide");
-    form.classList.toggle("hide");
-    timeEl.classList.toggle("hide");
-    message.textContent =
-        "I'm so proud of you just for existing. Your score is " + secondsLeft + ".";
-    initials.textContent =
-        "put your initials here or whatever you feel like"
-}
-
-submitBtn.addEventListener("click", record);
-
-
-function record(event) {
-    event.preventDefault();
-    var input = inputField.value.trim();
-    var score = secondsLeft;
-    var game = {
-        player: input,
-        number: score,
-    };
-    var storedGames = JSON.parse(localStorage.getItem("storedgames")) || [];
-    storedGames.push(game);
-    localStorage.setItem("storedgames", JSON.stringify(storedGames));
-
-    console.log(storedGames);
-    showScores();
-}
+// function showQuiz() {
+//     timeEl.classList.toggle("hide");
+//     timeEl.textContent = secondsLeft;
+//     initEl.classList.toggle('hide');
+//     qArea.classList.toggle('hide');
+//     aArea.classList.toggle('hide');
+//     qArea.innerHTML = Q;
+//     a1Btn.innerHTML = A1;
+//     a2Btn.innerHTML = A2;
+//     a3Btn.innerHTML = A3;
+//     a4Btn.innerHTML = A4;
+// }
 
 
 
-function showScores() {
-    form.classList.toggle("hide");
-    scoresArea.classList.toggle("hide");
-    var storedGames = JSON.parse(localStorage.getItem("storedgames")) || [];
-    storedGames.sort(function (a, b) {
-        return b.number - a.number
-    });
+// aArea.addEventListener("click", check);
 
-    for (var i = 0; i < storedGames.length; i++) {
 
-        var createLi = document.createElement("li");
-        createLi.textContent = storedGames[i].player + " " + storedGames[i].number;
-        scoreList.appendChild(createLi);
+// function check(event) {
+//     var right = quizChunks[current].correct;
 
-    }
-}
+//     if (event.target.textContent == right) {
+//         next();
+//         feedback.innerHTML = "Excellent!";
+//         feedbackExpiration = setTimeout(function () {
+//             feedback.innerHTML = "";
+//         }, 1000);
+//     }
+//     else {
+//         wrongg(10);
+//         next();
+//         feedback.innerHTML = "No.";
+//         feedbackExpiration = setTimeout(function () {
+//             feedback.innerHTML = "";
+//         }, 1000);
+//         stopAtZero();
+//         timeEl.textContent = secondsLeft;
+//     };
+// }
 
-reloadBtn.addEventListener("click", reload);
+// function stopAtZero() {
+//     if (secondsLeft <= 0) {
+//         secondsLeft = 0;
+//         endQuiz();
+//     }
+// }
 
-function reload() {
-    location.reload();
-}
+// function wrongg(seconds) {
+//     secondsLeft -= seconds;
+// }
+
+// function hideFeedback() {
+//     clearTimeout(feedbackExpiration);
+// }
+
+
+// function next() {
+//     current++;
+//     hideFeedback();
+
+//     if (current < 5) {
+//         var Q = quizChunks[current].question;
+//         var A1 = quizChunks[current].ans1;
+//         var A2 = quizChunks[current].ans2;
+//         var A3 = quizChunks[current].ans3;
+//         var A4 = quizChunks[current].ans4;
+
+//         qArea.innerHTML = Q;
+//         a1Btn.innerHTML = A1;
+//         a2Btn.innerHTML = A2;
+//         a3Btn.innerHTML = A3;
+//         a4Btn.innerHTML = A4;
+//     }
+
+//     else {
+//         endQuiz();
+//     }
+// }
+
+// function endQuiz() {
+//     clearInterval(timerInterval);
+//     qArea.classList.toggle("hide");
+//     aArea.classList.toggle("hide");
+//     form.classList.toggle("hide");
+//     timeEl.classList.toggle("hide");
+//     message.textContent =
+//         "I'm so proud of you just for existing. Your score is " + secondsLeft + ".";
+//     initials.textContent =
+//         "put your initials here or whatever you feel like"
+// }
+
+// submitBtn.addEventListener("click", record);
+
+
+// function record(event) {
+//     event.preventDefault();
+//     var input = inputField.value.trim();
+//     var score = secondsLeft;
+//     var game = {
+//         player: input,
+//         number: score,
+//     };
+//     var storedGames = JSON.parse(localStorage.getItem("storedgames")) || [];
+//     storedGames.push(game);
+//     localStorage.setItem("storedgames", JSON.stringify(storedGames));
+
+//     console.log(storedGames);
+//     showScores();
+// }
+
+
+
+// function showScores() {
+//     form.classList.toggle("hide");
+//     scoresArea.classList.toggle("hide");
+//     var storedGames = JSON.parse(localStorage.getItem("storedgames")) || [];
+//     storedGames.sort(function (a, b) {
+//         return b.number - a.number
+//     });
+
+//     for (var i = 0; i < storedGames.length; i++) {
+
+//         var createLi = document.createElement("li");
+//         createLi.textContent = storedGames[i].player + " " + storedGames[i].number;
+//         scoreList.appendChild(createLi);
+
+//     }
+// }
+
+// reloadBtn.addEventListener("click", reload);
+
+// function reload() {
+//     location.reload();
+// }

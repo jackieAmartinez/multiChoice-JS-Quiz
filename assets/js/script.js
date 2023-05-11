@@ -58,33 +58,6 @@ var Q3A2 = document.querySelector("#Q3A2");
 var Q3A3 = document.querySelector("#Q3A3");
 var Q3A4 = document.querySelector("#Q3A4");
 
-
-
-
-// Danny's variables
-
-// var qArea = document.getElementById("Q-area");
-// var aArea = document.getElementById("A-area");
-// var secondsLeft = 90;
-
-// var a1Btn = document.getElementById("a1");
-// var a2Btn = document.getElementById("a2");
-// var a3Btn = document.getElementById("a3");
-// var a4Btn = document.getElementById("a4");
-// var form = document.getElementById("form");
-// var aBtn = document.querySelectorAll(".A-btn");
-// var feedback = document.getElementById("feedback");
-// var feedbackExpiration;
-// var message = document.getElementById("message");
-// var initials = document.getElementById("initials");
-// var inputField = document.getElementById("input");
-// var submitBtn = document.getElementById("submit");
-// var scoresArea = document.getElementById("scores-area");
-// var scoreList = document.getElementById("scorelist");
-// var reloadBtn = document.getElementById("reload");
-
-
-// object full of objects for Qs and corresponding A arrays
 var timeForQuiz = [
     {
         question: "This is Question 1?",
@@ -130,69 +103,26 @@ var A1Q2 = timeForQuiz[current].A1Q2;
 var A1Q3 = timeForQuiz[current].A1Q3;
 var A1Q4 = timeForQuiz[current].A1Q4;
 
-showInit();
+var A2Q2 = timeForQuiz[current].A2Q1;
+var A2Q2 = timeForQuiz[current].A2Q2;
+var A2Q3 = timeForQuiz[current].A2Q3;
+var A2Q4 = timeForQuiz[current].A4Q4;
 
-// 
+var A3Q2 = timeForQuiz[current].A1Q1;
+var A3Q2 = timeForQuiz[current].A1Q2;
+var A3Q3 = timeForQuiz[current].A1Q3;
+var A3Q4 = timeForQuiz[current].A1Q4;
 
-// var quizChunks = [
-//     {
-//         question: "What are you wearing",
-//         ans1: "pizza",
-//         ans2: "rats",
-//         ans3: "skin suit",
-//         ans4: "music",
-//         correct: "skin suit"
-//     },
+var A4Q2 = timeForQuiz[current].A4Q1;
+var A4Q2 = timeForQuiz[current].A4Q2;
+var A4Q3 = timeForQuiz[current].A4Q3;
+var A4Q4 = timeForQuiz[current].A4Q4;
 
-//     {
-//         question: "why are we here on earth",
-//         ans1: "pizza",
-//         ans2: "rats",
-//         ans3: "boogers",
-//         ans4: "to fart around",
-//         correct: "to fart around"
-//     },
+showQ1();
 
-//     {
-//         question: "what is food",
-//         ans1: "pizza",
-//         ans2: "rats",
-//         ans3: "food",
-//         ans4: "all of the above",
-//         correct: "all of the above"
-//     },
-
-//     {
-//         question: "who deserves kindness",
-//         ans1: "steve",
-//         ans2: "everyone but steve",
-//         ans3: "hugh grant",
-//         ans4: "hugh grant",
-//         correct: "everyone but steve"
-//     },
-
-//     {
-//         question: "why am i sad",
-//         ans1: "because of the horrors",
-//         ans2: "pizza",
-//         ans3: "rats",
-//         ans4: "hugh grant",
-//         correct: "because of the horrors"
-//     },
-// ];
-
-// var current = 0;
-// var Q = quizChunks[current].question;
-// var A1 = quizChunks[current].ans1;
-// var A2 = quizChunks[current].ans2;
-// var A3 = quizChunks[current].ans3;
-// var A4 = quizChunks[current].ans4;
-
-// showInit();
-
-
-function showInit(event) {
-    initEl.classList.toggle("hide");
+function showQ1ModalBody(event) {
+    Q1ModalBody.idList.toggle("hide");
+    Q1Toggle.idList.toggle("hide");
 }
 
 var timerInterval;

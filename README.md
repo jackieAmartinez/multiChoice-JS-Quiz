@@ -1,16 +1,15 @@
-* make a timer (UTA 9)
-* make buttons generate (UTA 26)
-* create items, each item consisting of a question and four answers (answers in random sequence?)
-* display items one at a time in (random?) sequence
-* differentiate between correct and incorrect answers
-* make incorrect answers subtract time from timer
-* end quiz at end of questions
-* end quiz at end of timer
-* display score after quiz is over
-* save initials and score to local storage
-* display intials and scores when link is clicked
-* create one class for right answer buttons and one class for wrong answer buttons
-
+- make a timer (UTA 9)
+- make buttons generate (UTA 26)
+- create items, each item consisting of a question and four answers (answers in random sequence?)
+- display items one at a time in (random?) sequence
+- differentiate between correct and incorrect answers
+- make incorrect answers subtract time from timer
+- end quiz at end of questions
+- end quiz at end of timer
+- display score after quiz is over
+- save initials and score to local storage
+- display intials and scores when link is clicked
+- create one class for right answer buttons and one class for wrong answer buttons
 
 # JavaScript Quiz
 
@@ -20,9 +19,36 @@ The JavaScript Quiz was built to test the user's knowledge of JavaScript and com
 
 ## Table of Contents
 
-* Installation
-* Usage
-* Credits
+- Translations
+- Installation
+- Usage
+- Credits
+
+## Translations
+
+- Prueba de JavaScript = JavaScript Quiz
+- la cima = top
+- el tiempo = time
+- comenzar = start
+- preguntas = questions
+- respuestas = answers
+- el botón = button
+- prueba = quiz
+- mayor = main
+- forma = form
+- entregar = submit
+- marcar = score
+- la zona = area
+- el aviso = message
+- las iniciales = intials
+- la lista = list
+- recargar = reload
+- la reacción = feedback
+- la expiración = expiration
+- segundos quedan = seconds left
+- examen = exam
+- el aporte = input
+- juegos = games
 
 ## Installation
 

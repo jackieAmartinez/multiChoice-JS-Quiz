@@ -1,64 +1,82 @@
+// Start Button
 var comenzarBtn = document.querySelector("#comenzar");
+// Time
 var elTiempo = document.getElementById("elTiempo");
-var mainEl = document.getElementById("main");
-var elRegla = document.getElementById("regla");
-var qZona = document.getElementById("Q-zona");
-var aZona = document.getElementById("A-zona");
-var quedanSegundos = 90;
+// Main
+var main = document.getElementById("main");
+// Quiz
+var pruebra = document.getElementById("pruebra");
+// Questions Zone
+var preguntas = document.getElementById("preguntas");
+// Answers Zone
+var respuestas = document.getElementById("respuestas");
+// Seconds Left
+var segundosQuedan = 90;
+// Buttons
 var a1Btn = document.getElementById("a1");
 var a2Btn = document.getElementById("a2");
 var a3Btn = document.getElementById("a3");
 var a4Btn = document.getElementById("a4");
+// High Score section
 var forma = document.getElementById("forma");
+// Button
 var botón = document.querySelectorAll("botón");
+// Response Zone
 var reacción = document.getElementById("la reacción");
+// Response Expiration
 var reacciónExpiración;
+// Congrats Messsage
 var aviso = document.getElementById("aviso");
+// Initials
 var iniciales = document.getElementById("iniciales");
+// Submit Initials
 var inputField = document.getElementById("input");
+// Start Button
 var entregarBtn = document.getElementById("entregar");
+// The current High Score
 var marcarZona = document.getElementById("marcar-zona");
+// Current/Available High Scores
 var marcarLista = document.getElementById("marcarLista");
-var recargarBtn = document.getElementById("recargar");
+// Start Over
+var reloadBtn = document.getElementById("recargar");
 
 
-// object full of objects for Qs and corresponding A arrays
-
+// Exam/Question
 var examen = [
-  {question: "What are you wearing",
-  ans1: "pizza",
-  ans2: "rats",
-  ans3: "skin suit",
-  ans4: "music",
-  correct: "skin suit"},
+  {question: "How do you say JavaScript in Spanish?",
+  ans1: "Cafetería",
+  ans2: "El Gato",
+  ans3: "El JavaScript",
+  ans4: "El Majadero",
+  correct: "El JavaScript"},
 
-  {question: "why are we here on earth",
-  ans1: "pizza",
-  ans2: "rats",
-  ans3: "boogers",
-  ans4: "to fart around",
-  correct: "to fart around"},
+  {question: "Which of these are NOT Data Types?",
+  ans1: "Numeric Data Type",
+  ans2: "Taco Data Type",
+  ans3: "Boolean Data Type",
+  ans4: "String Data Type",
+  correct: "Taco Data Type"},
 
-  {question: "what is food",
-  ans1: "pizza",
-  ans2: "rats",
-  ans3: "food",
-  ans4: "all of the above",
-  correct: "all of the above"},
+  {question: "colors = ",
+  ans1: "||green, purple, maroon||",
+  ans2: "{brown, silver, red}",
+  ans3: "['white', 'black', 'custom']",
+  ans4: "<pink, magenta, lilac>",
+  correct: "['white', 'black', 'custom']"},
 
-  {question: "who deserves kindness",
-  ans1: "steve",
-  ans2: "everyone but steve",
-  ans3: "hugh grant",
-  ans4: "hugh grant",
-  correct: "everyone but steve"},
+  {question: "You work with the DOM",
+  ans1: "Tree",
+  ans2: "Bush",
+  ans3: "Gondola",
+  ans4: "Burger",
+  correct: "Tree"},
 
-  {question: "why am i sad",
-  ans1: "because of the horrors",
-  ans2: "pizza",
-  ans3: "rats", 
-  ans4: "hugh grant",
-  correct: "because of the horrors"},
+  {question: "What is a commonly used language?",
+  ans1: "Dolly",
+  ans2: "jQuery",
+  ans3: "Balloon", 
+  ans4: "Dutch",
+  correct: "jQuery"},
 ];
 
 var current = 0;
@@ -68,22 +86,22 @@ var A2 = examen[current].ans2;
 var A3 = examen[current].ans3;
 var A4 = examen[current].ans4;
 
-showRegla();
+showPruebra();
 
 
-function showRegla(event) {
-  elRegla.classList.toggle("hide");
+function showPruebra(event) {
+  pruebra.classList.toggle("hide");
 }
 
 var timerInterval;
 
 function setTime() {
   timerInterval = setInterval(function() {
-    quedanSegundos--;
-    elTiempo.textContent = quedanSegundos;
-    if(quedanSegundos === 0) {
+    segundosQuedan--;
+    elTiempo.textContent = segundosQuedan;
+    if(segundosQuedan === 0) {
       clearInterval(timerInterval);
-      endQuiz();
+      endPruebra();
     }
 
   }, 1000);
@@ -92,17 +110,17 @@ function setTime() {
 
 comenzarBtn.addEventListener("click", function() {
     setTime();
-    showQuiz();
+    showPruebra();
 });
 
 
-function showQuiz() {
+function showPruebra() {
   elTiempo.classList.toggle("hide");
-  elTiempo.textContent = quedanSegundos;
-  elRegla.classList.toggle( 'hide' );
-  qZona.classList.toggle( 'hide' );
-  aZona.classList.toggle( 'hide' );
-  qZona.innerHTML = Q;
+  elTiempo.textContent = segundosQuedan;
+  pruebra.classList.toggle( 'hide' );
+  preguntas.classList.toggle( 'hide' );
+  respuestas.classList.toggle( 'hide' );
+  preguntas.innerHTML = Q;
   a1Btn.innerHTML = A1;
   a2Btn.innerHTML = A2;
   a3Btn.innerHTML = A3;
@@ -111,7 +129,7 @@ function showQuiz() {
 
 
 
-aZona.addEventListener("click", check);
+respuestas.addEventListener("click", check);
 
 
 function check(event) {
@@ -119,31 +137,31 @@ function check(event) {
   
   if (event.target.textContent == right) {
     next();
-    reacción.innerHTML = "good doggy";
+    reacción.innerHTML = "Excellent!";
     reacciónExpiración = setTimeout(function () {
         reacción.innerHTML = "";
     }, 1000);
   }
   else {
-    punish(10);
+    bad(10);
     next();
-    reacción.innerHTML = "how dare you";
+    reacción.innerHTML = "How could you?";
     reacciónExpiración = setTimeout(function () {
       reacción.innerHTML = "";
     }, 1000);
     stopAtZero();
-    elTiempo.textContent = quedanSegundos;
+    elTiempo.textContent = segundosQuedan;
   };
 }
 
 function stopAtZero() {
-  if (quedanSegundos <= 0) {
-    quedanSegundos = 0;
-  endQuiz();
+  if (segundosQuedan <= 0) {
+    segundosQuedan = 0;
+  endPruebra();
 }}
 
-function punish(seconds) {
-    quedanSegundos -= seconds;
+function bad(seconds) {
+  segundosQuedan -= seconds;
 }
 
 function hideReacción() {
@@ -162,7 +180,7 @@ function next() {
     var A3 = examen[current].ans3;
     var A4 = examen[current].ans4;
  
-    qZona.innerHTML = Q;
+    preguntas.innerHTML = Q;
     a1Btn.innerHTML = A1;
     a2Btn.innerHTML = A2;
     a3Btn.innerHTML = A3;
@@ -170,18 +188,18 @@ function next() {
   }
 
   else {
-    endQuiz();
+    endPruebra();
   }
 }
 
-function endQuiz() {
+function endPruebra() {
   clearInterval(timerInterval);
-  qZona.classList.toggle("hide");
-  aZona.classList.toggle("hide");
+  preguntas.classList.toggle("hide");
+  respuestas.classList.toggle("hide");
   forma.classList.toggle("hide");
   elTiempo.classList.toggle("hide");
   aviso.textContent = 
-  "Congrats! Your score is " + quedanSegundos + ".";
+  "Congrats! Your score is " + segundosQuedan + ".";
   initials.textContent = 
   "Submit your intials"
 }
@@ -192,7 +210,7 @@ entregarBtn.addEventListener("click", record);
 function record(event) {
   event.preventDefault();
   var input = inputField.value.trim();
-  var marcar = quedanSegundos;
+  var marcar = segundosQuedan;
   var game = {
     player: input,
     number: marcar,
@@ -224,8 +242,8 @@ function showMarcar() {
   }
 }
 
-recargarBtn.addEventListener("click", recargar);
+reloadBtn.addEventListener("click", reload);
 
-function recargar() {
+function reload() {
   location.reload();
 }

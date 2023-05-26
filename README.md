@@ -1,4 +1,5 @@
-- make a timer (UTA 9)
+make a timer (UTA 9)
+
 - make buttons generate (UTA 26)
 - create items, each item consisting of a question and four answers (answers in random sequence?)
 - display items one at a time in (random?) sequence

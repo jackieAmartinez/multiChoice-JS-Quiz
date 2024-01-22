@@ -16,7 +16,6 @@ make a timer (UTA 9)
 
 The JavaScript Quiz was built to test the user's knowledge of JavaScript and compare it against their previous local scores. This quiz was built for indiviuals who are just starting out with JavaScript and wanted to quickly test their foundational knowledge within the 4 provided questions.
 
-[![JavaScript Quiz layout containing 'Start' button](https://github.com/HunterHester/JavaScript-Quiz/raw/main/assets/Images/QuizImage.png)](https://github.com/HunterHester/JavaScript-Quiz/blob/main/assets/Images/QuizImage.png)
 
 ## Table of Contents
 
